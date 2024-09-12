@@ -59,7 +59,7 @@ function isPrime(num) {
         return false;
     }
     for (let div=2; div*div <= num; div++) {
-        if (num % div === 0) {
+        if (num % div == 0) {
             return false;
         }
     }
