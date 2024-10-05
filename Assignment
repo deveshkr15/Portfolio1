@@ -1,0 +1,150 @@
+// 1. Write a function to remove duplicates from an array of integers.
+
+let removeduplicate=(arr)=>{
+    
+    for(let i=0;i<arr.length;i++){
+        let diff=false;
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]==arr[j]){
+                arr.splice(i,1);
+            }
+            
+        }
+
+    }
+    return arr;
+
+}
+let result=removeduplicate([10,10,15,20,20,30]);
+console.log(result);
+
+// 2. Write a function to find the second largest number in an array.
+
+let arr=[5,8,15,42,19,24];
+let max=[0];
+let secondlargest=[0];
+for(let i=1;i<arr.length;i++){
+    if(arr[i]>max){
+        secondmaxx=max
+    max=arr[i]
+}else if(arr[i]>secondlargest && arr[i]<max){
+    secondlargest=arr[i];
+}
+
+}
+console.log(secondlargest);
+
+// 3. Write a function to merge two arrays and return a sorted array without duplicates.
+
+function sortedmerge(arr1,arr2){
+    let mergearray=arr1.concat(arr2);
+    for(let i=0;i<mergearray.length;i++){
+        for(let j=i+1;j<mergearray.length;j++){
+            if(mergearray[i]==mergearray[j]){
+                mergearray.splice(j,1);
+            }
+        }
+    }
+    for(let i=0;i<mergearray.length;i++){
+        for(let j=i+1;j<mergearray.length;j++){
+            if(mergearray[i]>mergearray[j]){
+            let temp=mergearray[i]
+            mergearray[i]=mergearray[j]
+            mergearray[j]=temp
+            }
+        }
+    }
+    return mergearray;
+}
+let result=sortedmerge([10,20,20,30,40,40,50],[15,50,10,20,85,80,25]);
+console.log(result)
+
+// 4. Write a function to rotate an array by `k` positions.
+
+function rotate(arr2,k){
+    let end=arr2.length-1;
+    let endvalue=[];
+    for(let i=end;i>k;i--){
+        endvalue[endvalue.length]=arr2[i]
+    }
+    console.log(endvalue);
+    let exchange=endvalue.concat(arr2);
+
+    return exchange
+
+}
+let ans=rotate([1,2,3,4,5],2);
+console.log(ans);
+
+// 5. Write a function to find the intersection of two arrays (common elements).
+
+function intersection(arr1,arr2){
+    let arr3=[];
+    for(let i=0;i<arr1.length;i++){
+        for(let j=0;j<arr2.length;j++){
+            if(arr1[i]==arr2[j]){
+                arr3.push(arr2[j])
+            }
+        }
+    }
+    return arr3;
+
+}
+let answer=intersection([26,20,25,15,18],[15,18,25,17,16])
+console.log(answer);
+
+// 7. Write a function to reverse a string without using built-in functions.
+
+function reversestring(a){
+    let reverse='';
+    let length=a.length;
+    for(let i=length-1;i>=0;i--){
+        reverse=reverse+a[i];
+    }
+    return reverse;
+
+}
+ let reversestr=reversestring("Hello World");
+ console.log(reversestr);
+
+// 9. Write a function to count the occurrences of each character in a string.
+
+function countchar(str){
+    let count={};
+    for(let char of str){
+        if(count[char]){
+            count[char]++;
+        }
+        else{
+            count[char]=1;
+        }
+    }
+    return count;
+
+}
+let result=countchar("hello,world");
+console.log(result);
+
+
+
+// 10. Write a function to find the first non-repeating character in a string.
+
+function nonRepeating(str) {
+    let array = str.split("");
+    for (let i = 0; i < array.length; i++) {
+        let isRepeating = false;
+        for (let j = 0; j < array.length; j++) {
+            if (i !== j && array[i] == array[j]) {
+                isRepeating = true;
+                break;
+            }
+        }
+        if (!isRepeating) {
+            return array[i];
+        }
+    }
+    return null;
+}
+
+let result = nonRepeating("helloworld");
+console.log(result);
